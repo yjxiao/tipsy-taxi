@@ -1,6 +1,6 @@
 # tipsy-taxi
 
-*Big data final project*
+**Big data final project**
 
 #### Group Name:
 .XLS
