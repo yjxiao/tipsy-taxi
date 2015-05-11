@@ -1,10 +1,11 @@
 # tipsy-taxi
 
-## Big data final project
+*Big data final project*
 
-### Group Name: .XLS
+#### Group Name:
+.XLS
 
-### Group Member:
+#### Group Member:
 - Yijun Xiao
 - Wenying Liu
 - Fangyun Sun
