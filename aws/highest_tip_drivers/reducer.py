@@ -30,19 +30,28 @@ def reducer():
             fare_agg += fare
             count_agg += count
         else:
+            try:
+                pct = tip_agg / fare_agg
+            except ZeroDivisionError:
+                continue
+            
             if len(h) == k:
-                heapq.heappushpop(h, (tip_agg/fare_agg, count_agg, current))
+                    heapq.heappushpop(h, (pct, count_agg, current))
             else:
-                heapq.heappush(h, (tip_agg/fare_agg, count_agg, current))
+                heapq.heappush(h, (pct, count_agg, current))
             current = driver
             tip_agg = tip
             fare_agg = fare
             count_agg = count
-            
+
+    try:
+        pct = tip_agg / fare_agg
+    except ZeroDivisionError:
+        pct = 0
     if len(h) == k:
-        heapq.heappushpop(h, (tip_agg/fare_agg, count_agg, current))
+        heapq.heappushpop(h, (pct, count_agg, current))
     else:
-        heapq.heappush(h, (tip_agg/fare_agg, count_agg, current))
+        heapq.heappush(h, (pct, count_agg, current))
     
     for records in heapq.nlargest(k, h):
         print '{0}\t{1},{2}'.format(records[2], records[0], records[1])
